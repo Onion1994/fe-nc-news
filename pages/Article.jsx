@@ -1,14 +1,14 @@
 import { useParams } from 'react-router-dom'
-import ArticleCard from '../components/ArticleCard'
 import { useEffect, useState } from 'react'
-import { getArticle } from '../api'
+import { getArticle, getComments } from '../api'
+import CommentList from '../components/CommentList'
 
 export default function Article () {
     const [currentArticle, setCurrentArticle] = useState(null)
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-
     const  { article } = useParams()
+
     useEffect(() => {
         getArticle(article)
         .then((res) => {
@@ -21,7 +21,7 @@ export default function Article () {
         .finally(() => {
             setIsLoading(false)
         })
-    }, [])
+    }, [article])
 
     if (isLoading) {
         return <p>Loading...</p>
@@ -31,11 +31,15 @@ export default function Article () {
         return <p>Something went wrong</p>
     }
 
-    return <article className="component">
+    return <main className="component">
+        <article>
         <h2>{currentArticle.title}</h2>
         <h3>by {currentArticle.author}</h3>
-        <img src={currentArticle.article_img_url}></img>
+        <img src={currentArticle.article_img_url} alt="stock photo image thumbnail for the article" className='article-img'></img>
         <p>{currentArticle.body}</p>
-        <p>Votes: {currentArticle.votes}</p>
         </article>
+        <section>
+        <CommentList article={article}/>
+        </section>
+        </main>
 }

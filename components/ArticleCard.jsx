@@ -29,6 +29,6 @@ export default function ArticleCard () {
     }
 
     return articles.map((article) => {
-        return <Link to={`/${article.topic}/${article.article_id}`}key={article.article_id}><li className="component" key={article.article_id}><h2>{article.title}</h2><img className="article-img" src={article.article_img_url}></img></li></Link>
+        return <Link to={`/${article.topic}/${article.article_id}`}key={article.article_id}><li className="component list" key={article.article_id}><h2>{article.title}</h2><img className="article-img" src={article.article_img_url}></img></li></Link>
     })
 }
