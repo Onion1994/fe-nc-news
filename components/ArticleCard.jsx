@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { getArticles } from "../api"
+import { Link } from "react-router-dom"
 
 export default function ArticleCard () {
     const [isLoading, setIsLoading] = useState(true)
@@ -9,10 +10,12 @@ export default function ArticleCard () {
         getArticles()
         .then((res) => {
             setArticles(res)
-            setIsLoading(false)
+            setIsError(false)
         })
         .catch(() => {
             setIsError(true)
+        })
+        .finally(() => {
             setIsLoading(false)
         })
     }, [])
@@ -26,6 +29,6 @@ export default function ArticleCard () {
     }
 
     return articles.map((article) => {
-        return <li className="component" key={article.article_id}><h2>{article.title}</h2><img className="article-img" src={article.article_img_url}></img></li>
+        return <Link to={`/${article.topic}/${article.article_id}`}key={article.article_id}><li className="component" key={article.article_id}><h2>{article.title}</h2><img className="article-img" src={article.article_img_url}></img></li></Link>
     })
 }
