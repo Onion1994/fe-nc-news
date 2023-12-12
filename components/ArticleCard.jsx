@@ -26,6 +26,6 @@ export default function ArticleCard () {
     }
 
     return articles.map((article) => {
-        return <li className="component" key={article.article_id}><p>{article.title}</p><img className="article-img" src={article.article_img_url}></img></li>
+        return <li className="component" key={article.article_id}><h2>{article.title}</h2><img className="article-img" src={article.article_img_url}></img></li>
     })
 }
