@@ -1,6 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function Nav () {
     return <nav className="component">
-        <button type="onClick">Home</button>
+        <Link to="/">
+        <p>Home</p>
+        </Link>
         <p>user</p>
     </nav>
 }
