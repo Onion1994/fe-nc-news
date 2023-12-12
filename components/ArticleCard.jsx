@@ -3,6 +3,7 @@ import { getArticles } from "../api"
 
 export default function ArticleCard () {
     const [isLoading, setIsLoading] = useState(true)
+    const [isError, setIsError] = useState(false)
     const [articles, setArticles] = useState([])
     useEffect(() => {
         getArticles()
@@ -10,10 +11,18 @@ export default function ArticleCard () {
             setArticles(res)
             setIsLoading(false)
         })
+        .catch(() => {
+            setIsError(true)
+            setIsLoading(false)
+        })
     }, [])
 
     if (isLoading) {
         return <p>Loading...</p>
+    }
+
+    if (isError) {
+        return <p>Something went wrong</p>
     }
 
     return articles.map((article) => {
