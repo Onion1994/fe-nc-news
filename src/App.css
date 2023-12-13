@@ -65,7 +65,8 @@ input[type="text"] {
 
 .error-message {
     color: red;
-    font-size: larger;
+    font-size: x-large;
+    font-style: italic;
 }
 
 .button {
