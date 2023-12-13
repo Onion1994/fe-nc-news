@@ -23,3 +23,7 @@ export const patchVotes = (id, incVotes) => {
 export const postComment = (id, comment) => {
   return ncNewsApi.post(`/articles/${id}/comments`, comment).then(({ data: { comment } }) => comment);
 }
+
+export const deleteComment = (id) => {
+  return ncNewsApi.delete(`/comments/${id}`)
+}
