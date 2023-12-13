@@ -10,6 +10,10 @@ export default function Article () {
     const [isLoading, setIsLoading] = useState(true)
     const  { article } = useParams()
 
+    const [currentComments, setCurrentComments] = useState([])
+
+    
+
     useEffect(() => {
         getArticle(article)
         .then((res) => {
@@ -40,8 +44,6 @@ export default function Article () {
         <p>{currentArticle.body}</p>
         <Votes currentArticle={currentArticle}/>
         </article>
-        <section>
-        <CommentList article={article}/>
-        </section>
+        <CommentList currentComments={currentComments} article={article} setCurrentComments={setCurrentComments}/>
         </main>
 }

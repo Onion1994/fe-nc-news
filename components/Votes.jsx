@@ -23,7 +23,7 @@ export default function Votes ({ currentArticle }) {
     }
 
 
-    return <div>
+    return <div className="component">
         <p>Votes: {votes}</p>
         <button className="button green-button" onClick={() => handleVote(currentArticle.article_id, 1)}>Upvote</button>
     <button className="button red-button" onClick={() => handleVote(currentArticle.article_id, -1)}>Downvote</button>

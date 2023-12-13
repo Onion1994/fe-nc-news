@@ -1,15 +1,4 @@
-import { useEffect, useState } from "react";
-import { getComments } from "../api";
-
-export default function CommentCard ({ article }) {
-    const [currentComments, setCurrentComments] = useState([])
-
-    useEffect(() => {
-        getComments(article)
-        .then((res) => {
-            setCurrentComments(res)
-        })
-    }, [article])
+export default function CommentCard ({ currentComments }) {
 
     return <ul className="component"><h2>Comments</h2>
     {currentComments.map((comment) => {
