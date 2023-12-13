@@ -21,6 +21,26 @@ article {
     margin: 5%;
 }
 
+form {
+    display:flex;
+    flex-direction: column;
+
+}
+
+textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+
+input[type="text"] {
+    padding: 5%;
+    font-size: large;
+}
+
 .component {
     border: 2px solid rgb(19, 26, 218);
     max-width: 100%;
@@ -45,7 +65,8 @@ article {
 
 .error-message {
     color: red;
-    font-size: larger;
+    font-size: x-large;
+    font-style: italic;
 }
 
 .button {
@@ -63,4 +84,8 @@ article {
 
 .red-button {
     background-color: rgb(255, 161, 143);
+}
+
+.blue-button {
+    background-color: rgb(150, 195, 255);
 }
