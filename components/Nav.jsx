@@ -5,6 +5,6 @@ export default function Nav () {
         <Link to="/">
         <p>Home</p>
         </Link>
-        <p>user</p>
+        <p>user: tickle122</p>
     </nav>
 }

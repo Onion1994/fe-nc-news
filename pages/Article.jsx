@@ -1,30 +1,18 @@
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { getArticle, patchVotes } from '../api'
+import { getArticle } from '../api'
 import CommentList from '../components/CommentList'
+import Votes from '../components/Votes'
 
 export default function Article () {
     const [currentArticle, setCurrentArticle] = useState(null)
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
-    const [isFailedRequest, setIsFailedRequest] = useState(false)
     const  { article } = useParams()
 
-    function handleVote (article, vote){
-        if (vote > 0) {
-            setCurrentArticle(prevArticle => {
-                return {...prevArticle, votes: prevArticle.votes+ 1}
-            })
-        } else {
-            setCurrentArticle(prevArticle => {
-                return {...prevArticle, votes: prevArticle.votes- 1}
-            })
-        }
-        patchVotes(article, {inc_votes : vote})
-        .catch(() => {
-            setIsFailedRequest(true)
-        })
-    }
+    const [currentComments, setCurrentComments] = useState([])
+
+    
 
     useEffect(() => {
         getArticle(article)
@@ -54,13 +42,8 @@ export default function Article () {
         <h3>by {currentArticle.author}</h3>
         <img src={currentArticle.article_img_url} alt="stock photo image thumbnail for the article" className='article-img'></img>
         <p>{currentArticle.body}</p>
-        <p>Votes: {currentArticle.votes}</p>
+        <Votes currentArticle={currentArticle}/>
         </article>
-        <button className="button green-button" onClick={() => handleVote(article, 1)}>Upvote</button>
-        <button className="button red-button" onClick={() => handleVote(article, -1)}>Downvote</button>
-        <p className="error-message">{isFailedRequest ? "Vote registration failed. Please refresh and try again." : null}</p>
-        <section>
-        <CommentList article={article}/>
-        </section>
+        <CommentList currentComments={currentComments} article={article} setCurrentComments={setCurrentComments}/>
         </main>
 }
