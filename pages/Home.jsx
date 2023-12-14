@@ -1,5 +1,8 @@
 import ArticleList from "../components/ArticleList";
 
 export default function Home () {
-    return <ArticleList />
+    return <section className="component">
+        <h2>Home</h2>
+        <ArticleList />
+        </section>
 }

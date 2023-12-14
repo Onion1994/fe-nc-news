@@ -1,7 +1,7 @@
 import ArticleCard from "./ArticleCard";
 
-export default function ArticleList () {
+export default function ArticleList ({ topic }) {
     return <ul className="component">
-        <ArticleCard />
+        <ArticleCard topic={topic}/>
     </ul>
 }
