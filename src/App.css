@@ -6,6 +6,16 @@
 nav {
     text-align: center;
     font-size: larger;
+    font-weight: bold
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 20px 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
 }
 
 h1, h2, h3 {
@@ -49,7 +59,27 @@ input[type="text"] {
 .article-img {
     width: 100%;
     height: auto;
+    border: 2px solid white;
+    border-radius: 10px;
 }
+
+.error-message {
+    color: red;
+    font-size: x-large;
+    font-style: italic;
+    background-color: transparent;
+    padding: 5%;
+    text-shadow: none;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: relative;
+    border: 2px solid transparent;
+  }
+  
+  .error-message:not(:empty) {
+    background-color: white;
+    border-color: black;
+  }
 
 .stylised-box {
     background-color: brown;
@@ -59,15 +89,16 @@ input[type="text"] {
     border-radius: 10px;
     padding: 20px;
     margin: 15px 0;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.error-message {
-    color: red;
-    font-size: x-large;
-    font-style: italic;
+.stylised-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px black
 }
+
 
 .button {
     font-size: larger;
