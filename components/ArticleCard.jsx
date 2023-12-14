@@ -12,25 +12,14 @@ export default function ArticleCard ({ topic, order, sortBy }) {
             .then((res) => {
                 setArticles(res)
                 setIsError(false)
+                setIsLoading(false)
             })
             .catch(() => {
                 setIsError(true)
-            })
-            .finally(() => {
                 setIsLoading(false)
             })
+            
     }, [order, sortBy])
-
-    function setData (res) {
-        setArticles(res)
-        setIsError(false)
-        .catch(() => {
-            setIsError(true)
-        })
-        .finally(() => {
-            setIsLoading(false)
-        })
-    }
 
     if (isLoading) {
         return <p>Loading...</p>
