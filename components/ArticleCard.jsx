@@ -2,12 +2,13 @@ import { useEffect, useState } from "react"
 import { getArticles } from "../api"
 import { Link } from "react-router-dom"
 
-export default function ArticleCard ({ topic }) {
+export default function ArticleCard ({ topic, order, sortBy }) {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
     const [articles, setArticles] = useState([])
     useEffect(() => {
-        getArticles(topic)
+        setIsLoading(true)
+        getArticles(topic, order, sortBy)
             .then((res) => {
                 setArticles(res)
                 setIsError(false)
@@ -18,7 +19,7 @@ export default function ArticleCard ({ topic }) {
             .finally(() => {
                 setIsLoading(false)
             })
-    }, [])
+    }, [order, sortBy])
 
     function setData (res) {
         setArticles(res)
