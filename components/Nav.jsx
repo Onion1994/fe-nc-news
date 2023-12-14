@@ -10,6 +10,9 @@ export default function Nav() {
       <Link to="/">
         <p>Home</p>
       </Link>
+      <Link to="/topics">
+        <p>Topics</p>
+      </Link>
       <p>Logged as: {user}</p>
     </nav>
   );

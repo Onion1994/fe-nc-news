@@ -2,23 +2,34 @@ import { useEffect, useState } from "react"
 import { getArticles } from "../api"
 import { Link } from "react-router-dom"
 
-export default function ArticleCard () {
+export default function ArticleCard ({ topic }) {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
     const [articles, setArticles] = useState([])
     useEffect(() => {
-        getArticles()
-        .then((res) => {
-            setArticles(res)
-            setIsError(false)
-        })
+        getArticles(topic)
+            .then((res) => {
+                setArticles(res)
+                setIsError(false)
+            })
+            .catch(() => {
+                setIsError(true)
+            })
+            .finally(() => {
+                setIsLoading(false)
+            })
+    }, [])
+
+    function setData (res) {
+        setArticles(res)
+        setIsError(false)
         .catch(() => {
             setIsError(true)
         })
         .finally(() => {
             setIsLoading(false)
         })
-    }, [])
+    }
 
     if (isLoading) {
         return <p>Loading...</p>
@@ -31,7 +42,7 @@ export default function ArticleCard () {
     return articles.map((article) => {
         return <Link className="no-underline" to={`/${article.topic}/${article.article_id}`}key={article.article_id}>
             <li className="component stylised-box" key={article.article_id}>
-                <h2>{article.title}</h2>
+                <h3>{article.title}</h3>
                 <img className="article-img" src={article.article_img_url}></img>
                 </li></Link>
     })
