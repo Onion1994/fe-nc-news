@@ -34,11 +34,20 @@ article {
 form {
     display:flex;
     flex-direction: column;
+}
 
+select {
+    font-size: large;
+    text-align: center;
+    padding: 5px;
 }
 
 textarea {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dropdown-container {
+    text-align: center;
 }
 
 .form-container {
