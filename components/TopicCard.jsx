@@ -30,7 +30,7 @@ export default function TopicCard () {
     }
 
     return topics.map((topic) => {
-        return <Link className="no-underline" to={`/${topic.slug}`}key={topic.slug}><li className="component stylised-box" key={topic.slug}>
+        return <Link className="no-underline" to={`/${topic.slug}`}key={topic.slug}><li className="stylised-box" key={topic.slug}>
         <h3>{topic.slug.toUpperCase()}:</h3>
             <h4>{topic.description}</h4>
         </li>

@@ -14,7 +14,7 @@ export default function ArticleList ({ topic }) {
         setSortBy(event.target.value)
     }
 
-    return <div className="component">
+    return <div>
         <div className="dropdown-container">
         <h3>Order</h3>
         <select value={order} onChange={handleOrder} id="order">
@@ -24,11 +24,11 @@ export default function ArticleList ({ topic }) {
             <h3>Sort by</h3>
             <select value={sortBy} onChange={(handleSortBy)} id="sort-by">
                 <option value="created_at">Date</option>
-                <option value="comment_count">Comment count</option>
-                <option value="votes">votes</option>
+                <option value="comment_count">Comments</option>
+                <option value="votes">Votes</option>
                 </select>
         </div>
-        <ul className="component">
+        <ul>
         <ArticleCard topic={topic} order={order} sortBy={sortBy}/>
         </ul>
     </div>

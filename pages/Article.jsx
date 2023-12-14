@@ -36,12 +36,13 @@ export default function Article () {
         return <p>Something went wrong</p>
     }
 
-    return <main className="component">
+    return <main>
         <article>
         <h2>{currentArticle.title}</h2>
         <h3>by {currentArticle.author}</h3>
         <img src={currentArticle.article_img_url} alt="stock photo image thumbnail for the article" className='article-img'></img>
         <p>{currentArticle.body}</p>
+        <p className='date'>{currentArticle.created_at.slice(0, 10)} - {currentArticle.created_at.slice(12, 16)}</p>
         <Votes currentArticle={currentArticle}/>
         </article>
         <CommentList currentComments={currentComments} article={article} setCurrentComments={setCurrentComments}/>

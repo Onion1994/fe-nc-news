@@ -6,7 +6,7 @@ export default function Nav() {
   const { user } = useContext(UserContext);
 
   return (
-    <nav className="component">
+    <nav>
       <Link to="/">
         <p>Home</p>
       </Link>

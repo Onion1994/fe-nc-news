@@ -31,7 +31,7 @@ export default function ArticleCard ({ topic, order, sortBy }) {
 
     return articles.map((article) => {
         return <Link className="no-underline" to={`/${article.topic}/${article.article_id}`}key={article.article_id}>
-            <li className="component stylised-box" key={article.article_id}>
+            <li className="stylised-box" key={article.article_id}>
                 <h3>{article.title}</h3>
                 <img className="article-img" src={article.article_img_url}></img>
                 </li></Link>

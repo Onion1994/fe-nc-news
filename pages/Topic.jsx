@@ -6,7 +6,7 @@ export default function Topic () {
     let { topic } = useParams()
     
 
-    return <section className="component">
+    return <section>
     <h2>{topic.toUpperCase()}</h2>
     <ArticleList topic={topic}/>
     </section>
