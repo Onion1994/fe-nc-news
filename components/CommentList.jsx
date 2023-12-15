@@ -15,7 +15,7 @@ export default function CommentList ({ article, currentComments, setCurrentComme
     
     return <section>
         <CommentAdder article={article} setCurrentComments={setCurrentComments} currentComments={currentComments}/>
-    <ul className="component">
+    <ul>
         <CommentCard article={article} setCurrentComments={setCurrentComments} currentComments={currentComments} />
     </ul>
     </section>

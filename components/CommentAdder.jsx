@@ -38,12 +38,12 @@ export default function CommentAdder({
       onSubmit={(event) => {
         handleSubmit(event, user, newComment, article);
       }}
-      className="form-container component"
+      className="form-container"
     >
       <label htmlFor="add-comment">Add comment</label>
       <textarea
         placeholder="Type comment here..."
-        rows="4"
+        rows="8"
         id="add-comment"
         required
         value={newComment}
