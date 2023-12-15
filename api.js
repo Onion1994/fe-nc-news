@@ -15,8 +15,14 @@ export const getArticles = (topic, order, sortBy) => {
 }
 
 export const getArticle = (id) => {
-  return ncNewsApi.get(`/articles/${id}`).then(({ data: { article } }) => article);
-};
+  return ncNewsApi.get(`/articles/${id}`).then(({ data: { article } }) => article)
+  .catch(function (error) {
+    if (error.response) {
+      console.log(error.response)
+      return `${error.response.status}: ${error.response.data.msg}`
+     }
+  });
+}
 
 export const getComments = (id) => {
   return ncNewsApi.get(`/articles/${id}/comments`).then(({ data: { comments } }) => comments);
@@ -35,5 +41,5 @@ export const deleteComment = (id) => {
 }
 
 export const getTopics = () => {
-  return ncNewsApi.get("/topics").then(({ data: { topics } }) => topics);
+  return ncNewsApi.get("/topics").then(({ data: { topics } }) => topics)
 }

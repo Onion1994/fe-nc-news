@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getArticle } from '../api'
 import CommentList from '../components/CommentList'
@@ -8,15 +8,19 @@ export default function Article () {
     const [currentArticle, setCurrentArticle] = useState(null)
     const [isError, setIsError] = useState(false)
     const [isLoading, setIsLoading] = useState(true)
+    const [errorMessage, setErrorMessage] = useState(null)
     const  { article } = useParams()
+    const { topic } = useParams()
 
     const [currentComments, setCurrentComments] = useState([])
 
-    
 
     useEffect(() => {
         getArticle(article)
         .then((res) => {
+            if (typeof res === 'string') {
+                setErrorMessage(res)
+            }
             setCurrentArticle(res)
             setIsError(false)
         })
@@ -35,6 +39,15 @@ export default function Article () {
     if (isError) {
         return <p>Something went wrong</p>
     }
+
+    if (topic !== currentArticle.topic && !errorMessage) {
+        return <Navigate to={"/error"} />
+    }
+
+    if (errorMessage) {
+        console.log(errorMessage)
+        return <Navigate to={"/error"} state={{ errorMessage: errorMessage }} />;
+    }    
 
     return <main>
         <article>
