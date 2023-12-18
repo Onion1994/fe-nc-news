@@ -1,4 +1,4 @@
-# NorthCoders News
+# Northcoders News
 
 ## Deployed Version
 The deployed version of this project can be accessed [here](https://renatos-northcoders-news.netlify.app/?sort_by=created_at&order=desc).
