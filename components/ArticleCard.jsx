@@ -24,7 +24,7 @@ export default function ArticleCard ({ topic, order, sortBy }) {
     }, [order, sortBy, topic])
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <div className="spinner"></div>
     }
 
     if (isError) {

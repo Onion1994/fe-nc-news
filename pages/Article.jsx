@@ -33,7 +33,7 @@ export default function Article () {
     }, [article])
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <div className='spinner'></div>
     }
 
     if (isError) {
@@ -45,7 +45,6 @@ export default function Article () {
     }
 
     if (errorMessage) {
-        console.log(errorMessage)
         return <Navigate to={"/error"} state={{ errorMessage: errorMessage }} />;
     }    
 

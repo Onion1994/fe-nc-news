@@ -22,7 +22,7 @@ export default function TopicCard () {
     }, [])
 
     if (isLoading) {
-        return <p>Loading...</p>
+        return <div className="spinner"></div>
     }
 
     if (isError) {
