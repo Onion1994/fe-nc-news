@@ -30,7 +30,7 @@ export default function CommentVotes({ comment }) {
           ? "Vote registration failed. Please refresh and try again."
           : null}
       </p>
-      <p className="votes">votes: {votes}</p>
+      <p className="votes">Votes: {votes}</p>
       <button
         className="button green-button" disabled={isFailedRequest}
         onClick={() => handleVote(comment.comment_id, 1)}
