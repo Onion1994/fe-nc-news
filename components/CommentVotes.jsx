@@ -35,13 +35,13 @@ export default function CommentVotes({ comment }) {
         className="button green-button" disabled={isFailedRequest}
         onClick={() => handleVote(comment.comment_id, 1)}
       >
-        Upvote
+        ↑
       </button>
       <button
         className="button red-button" disabled={isFailedRequest}
         onClick={() => handleVote(comment.comment_id, -1)}
       >
-        Downvote
+        ↓
       </button>
     </div>
   );

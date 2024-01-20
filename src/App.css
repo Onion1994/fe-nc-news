@@ -118,7 +118,6 @@ input[type="text"] {
 .button {
     font-size: larger;
     margin: 2%;
-    padding: 3%;
     border: 1px solid #ccc;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -133,15 +132,33 @@ input[type="text"] {
 }
 
 .green-button {
+    width: 80px;
+    height: 80px;
     background-color: rgb(150, 208, 150);
+    font-weight: bolder;
+    border-radius: 50%;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
 }
 
 .red-button {
+    width: 80px;
+    height: 80px;
     background-color: rgb(255, 161, 143);
+    font-weight: bolder;
+    border-radius: 50%;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .blue-button {
     background-color: rgb(150, 195, 255);
+    padding: 3%;
 }
 
 .date {
