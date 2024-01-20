@@ -24,8 +24,8 @@ export default function ArticleVotes ({ currentArticle }) {
 
     return <div>
         <p className="votes">Votes: {votes}</p>
-        <button className="button green-button" onClick={() => handleVote(currentArticle.article_id, 1)}>Upvote</button>
-    <button className="button red-button" onClick={() => handleVote(currentArticle.article_id, -1)}>Downvote</button>
+        <button className="button green-button" disabled={isFailedRequest} onClick={() => handleVote(currentArticle.article_id, 1)}>Upvote</button>
+    <button className="button red-button" disabled={isFailedRequest} onClick={() => handleVote(currentArticle.article_id, -1)}>Downvote</button>
     <p className="error-message">{isFailedRequest ? "Vote registration failed. Please refresh and try again." : null}</p>
 </div>
 }

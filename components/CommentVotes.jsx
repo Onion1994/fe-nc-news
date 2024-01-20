@@ -25,24 +25,24 @@ export default function CommentVotes({ comment }) {
 
   return (
     <div>
+        <p className="error-message">
+        {isFailedRequest
+          ? "Vote registration failed. Please refresh and try again."
+          : null}
+      </p>
       <p className="votes">votes: {votes}</p>
       <button
-        className="button green-button"
+        className="button green-button" disabled={isFailedRequest}
         onClick={() => handleVote(comment.comment_id, 1)}
       >
         Upvote
       </button>
       <button
-        className="button red-button"
+        className="button red-button" disabled={isFailedRequest}
         onClick={() => handleVote(comment.comment_id, -1)}
       >
         Downvote
       </button>
-      <p className="error-message">
-        {isFailedRequest
-          ? "Vote registration failed. Please refresh and try again."
-          : null}
-      </p>
     </div>
   );
 }

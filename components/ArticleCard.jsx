@@ -15,8 +15,7 @@ export default function ArticleCard ({ topic, order, sortBy }) {
                 setIsError(false)
                 setIsLoading(false)
             })
-            .catch((err) => {
-                console.log(err)
+            .catch(() => {
                 setIsError(true)
                 setIsLoading(false)
             })
