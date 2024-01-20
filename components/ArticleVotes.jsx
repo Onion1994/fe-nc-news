@@ -1,12 +1,11 @@
 import { useState } from "react"
-import { patchVotes } from "../api"
+import { patchArticleVotes } from "../api"
 
-export default function Votes ({ currentArticle }) {
+export default function ArticleVotes ({ currentArticle }) {
     
     const [votes, setVotes] = useState(currentArticle.votes)
     const [isFailedRequest, setIsFailedRequest] = useState(false)
 
-    
     function handleVote (article, vote){
         let updatedVotes = votes
 
@@ -16,7 +15,7 @@ export default function Votes ({ currentArticle }) {
             updatedVotes--
             }
         setVotes(updatedVotes)
-        patchVotes(article, {inc_votes : vote})
+        patchArticleVotes(article, {inc_votes : vote})
         .catch(() => {
             setIsFailedRequest(true)
         })

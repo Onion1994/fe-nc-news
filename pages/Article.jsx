@@ -2,7 +2,7 @@ import { Navigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { getArticle } from '../api'
 import CommentList from '../components/CommentList'
-import Votes from '../components/Votes'
+import ArticleVotes from '../components/ArticleVotes'
 
 export default function Article () {
     const [currentArticle, setCurrentArticle] = useState(null)
@@ -55,7 +55,7 @@ export default function Article () {
         <img src={currentArticle.article_img_url} alt="stock photo image thumbnail for the article" className='article-img'></img>
         <p>{currentArticle.body}</p>
         <p className='date'>{currentArticle.created_at.slice(0, 10)} - {currentArticle.created_at.slice(12, 16)}</p>
-        <Votes currentArticle={currentArticle}/>
+        <ArticleVotes currentArticle={currentArticle}/>
         </article>
         <CommentList currentComments={currentComments} article={article} setCurrentComments={setCurrentComments}/>
         </main>

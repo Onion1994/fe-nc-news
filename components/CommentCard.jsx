@@ -1,6 +1,7 @@
 import { useContext, useState } from "react"
 import { deleteComment } from "../api"
 import { UserContext } from "../contexts/UserContext"
+import CommentVotes from "./CommentVotes"
 
 export default function CommentCard ({ currentComments, setCurrentComments }) {
 
@@ -44,7 +45,7 @@ export default function CommentCard ({ currentComments, setCurrentComments }) {
             <h3>{comment.author}</h3>
             <p>{comment.body}</p>
             <p className="date">{comment.created_at.slice(0, 10)} - {comment.created_at.slice(12, 16)}</p>
-            <p className="votes">votes: {comment.votes}</p>
+            {comment.author !== user ? <CommentVotes comment={comment}/> : null}
         </li>
     }})}
 </ul>
