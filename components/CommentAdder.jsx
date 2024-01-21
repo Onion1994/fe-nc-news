@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { postComment } from "../api";
 import { UserContext } from "../contexts/UserContext";
 
@@ -11,7 +11,8 @@ export default function CommentAdder({
   const { user } = useContext(UserContext);
   const [isSendError, setIsSendError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [limitExceeded, setLimitExceeded] = useState(false)
+  
   const handleSubmit = (event, user, newComment, article) => {
     event.preventDefault();
     setIsLoading(true);
@@ -33,6 +34,14 @@ export default function CommentAdder({
       });
   };
 
+  useEffect(() => {
+    if (newComment.length > 750) {
+      setLimitExceeded(true)
+    } else {
+      setLimitExceeded(false)
+    }
+  }, [newComment])
+
   return (
     <form
       onSubmit={(event) => {
@@ -49,11 +58,12 @@ export default function CommentAdder({
         value={newComment}
         onChange={(event) => setNewComment(event.target.value)}
       ></textarea>
+      {limitExceeded ? <p className='error-message'>{`Your comment exceeds the limit by ${newComment.length - 750} characters`}</p>: `You have ${750 - newComment.length} characters remaining.`}
       <>
         {isLoading ? (
           <p>Posting comment...</p>
         ) : (
-          <button type="submit" className="button blue-button">
+          <button disabled={limitExceeded} type="submit" className="button blue-button">
             Send!
           </button>
         )}

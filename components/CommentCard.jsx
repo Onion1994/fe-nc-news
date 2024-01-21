@@ -45,7 +45,7 @@ export default function CommentCard ({ currentComments, setCurrentComments }) {
             <h3>{comment.author}</h3>
             <p>{comment.body}</p>
             <p className="date">{comment.created_at.slice(0, 10)} - {comment.created_at.slice(12, 16)}</p>
-            {comment.author !== user ? <CommentVotes comment={comment}/> : <p>Votes: {comment.votes}</p>}
+            {comment.author !== user ? <CommentVotes comment={comment}/> : <p className="votes">Votes: {comment.votes}</p>}
         </li>
     }})}
 </ul>

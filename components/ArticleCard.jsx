@@ -34,7 +34,7 @@ export default function ArticleCard ({ topic, order, sortBy }) {
         return <Link className="no-underline" to={`/topics/${article.topic}/${article.article_id}`}key={article.article_id}>
             <li className="stylised-box" key={article.article_id}>
                 <h3>{article.title}</h3>
-                <img className="article-img" src={article.article_img_url} alt='Article image'></img>
+                <img className="article-img" src={article.article_img_url} alt="stock photo image thumbnail for the article"></img>
                 </li></Link>
     })
 }
