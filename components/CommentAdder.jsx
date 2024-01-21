@@ -58,7 +58,7 @@ export default function CommentAdder({
         value={newComment}
         onChange={(event) => setNewComment(event.target.value)}
       ></textarea>
-      {limitExceeded ? <p className='error-message'>{`Your comment exceeds the limit by ${newComment.length - 750} characters`}</p>: `You have ${750 - newComment.length} characters remaining.`}
+      {limitExceeded ? <p className='error-message'>{`Character limit exceeded by ${newComment.length - 750}`}</p>: `You have ${750 - newComment.length} characters remaining.`}
       <>
         {isLoading ? (
           <p>Posting comment...</p>
